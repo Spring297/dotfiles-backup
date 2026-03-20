@@ -1,0 +1,19 @@
+# zsh
+.zsh_history
+
+# secrets
+*.key
+*.pem
+*.crt
+.env
+.config/secrets/
+
+# cache / temp
+.cache/
+*.cache
+*.tmp
+*.swp
+
+# system junk
+.DS_Store
+Thumbs.db
