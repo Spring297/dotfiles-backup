@@ -7,7 +7,6 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
         "custom/media"
@@ -225,17 +224,15 @@
   "tooltip": "Bluetooth",
   "on-click": "blueman-manager"
 },
-"custom/controller": {
-  "exec": "/home/Spring/.config/waybar/scripts/controller-battery.sh",
-  "interval": 15,
-  "tooltip": false
-},
 "hyprland/workspaces": {
     "format": "{icon}",
+    "sort-by": "number",
+    "active-only": false,
     "all-outputs": true,
     "sort-by": "number",
+    "show-special": false,
     "persistent-workspaces": {
-        "*": 10
+        "*": [1,2,3,4,5,6,7,8,9,10]
     },
     "format-icons": {
         "active": "●",
