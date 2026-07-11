@@ -1,17 +1,40 @@
+/* Orange + Purple Cyberpunk Waybar Theme */
+
+@define-color bar-bg rgba(15, 10, 24, 0.78);
+@define-color module-bg rgba(45, 24, 63, 0.72);
+@define-color module-hover rgba(112, 48, 140, 0.82);
+
+@define-color purple #b56cff;
+@define-color purple-deep #6f3cc3;
+@define-color orange #ff9d4d;
+@define-color orange-bright #ffb86b;
+@define-color text #eee8f5;
+@define-color muted #a99db5;
+@define-color urgent #ff5f7a;
+
 * {
     font-family: JetBrainsMono Nerd Font;
     font-size: 13px;
     border: none;
+    min-height: 0;
 }
 
 window#waybar {
-    background: rgba(20, 20, 30, 0.6);
+    background: @bar-bg;
+    color: @text;
     border-radius: 10px;
 }
 
 tooltip {
     font-family: NotoSansMono Nerd Font;
+    background: rgba(24, 14, 36, 0.96);
+    color: @text;
+    border: 1px solid @purple-deep;
+    border-radius: 8px;
+}
 
+tooltip label {
+    color: @text;
 }
 
 #clock,
@@ -27,12 +50,47 @@ tooltip {
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 8px;
-    background: rgba(40, 40, 60, 0.6);
+    background: @module-bg;
+    color: @text;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 #clock {
-    color: #8be9fd;
+    color: @orange-bright;
     font-weight: bold;
+}
+
+#custom-weather {
+    color: @purple;
+}
+
+#network,
+#custom-bluetooth {
+    color: #d8b4ff;
+}
+
+#pulseaudio {
+    color: @orange;
+}
+
+#cpu,
+#memory,
+#temperature {
+    color: @text;
+}
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-weather:hover,
+#custom-bluetooth:hover,
+#custom-controller:hover,
+#tray:hover {
+    background: @module-hover;
+    color: @orange-bright;
 }
 
 .modules-right {
@@ -43,35 +101,48 @@ tooltip {
     padding: 0 10px;
     margin: 4px;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    color: @orange;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 #custom-power:hover {
-    background: rgba(100, 140, 255, 0.18);
-    color: #8ecbff;
+    background: rgba(255, 157, 77, 0.20);
+    color: @orange-bright;
 }
 
 #workspaces {
-    background: rgba(40, 40, 60, 0.6);
+    background: @module-bg;
     border-radius: 8px;
     padding: 0 10px;
     margin: 0 4px;
 }
 
 #workspaces button {
-    color: #9aa5b1;
+    color: @muted;
     padding: 0 4px;
     background: transparent;
+    border-radius: 6px;
+    transition: color 0.2s ease, background 0.2s ease;
 }
 
-/* By default, even active/visible workspaces stay hollow */
+/* Visible but not hosted here */
 #workspaces button.active,
 #workspaces button.visible {
-    color: #9aa5b1;
+    color: @purple;
 }
 
-/* Only the workspace hosted on this monitor gets the filled look */
+/* Workspace currently hosted on this monitor */
 #workspaces button.hosting-monitor.active,
 #workspaces button.hosting-monitor.visible {
-    color: #7dd3fc;
+    color: @orange-bright;
+    background: rgba(181, 108, 255, 0.14);
+}
+
+#workspaces button:hover {
+    color: @orange-bright;
+    background: rgba(255, 157, 77, 0.12);
+}
+
+#workspaces button.urgent {
+    color: @urgent;
 }

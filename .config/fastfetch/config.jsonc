@@ -4,15 +4,15 @@
 
   "logo": {
    "type": "kitty",
-   "source": "~/Pictures/Hayabusa_Clan_Crest.png"
+   "source": "~/Pictures/Samurai.png"
 
 
   },
 
   "display": {
     "color": {
-      "keys": "#0080ff",
-      "title": "#0090ff"
+      "keys": "#b56cff",
+      "title": "#ffb86b"
     }
   },  
 
