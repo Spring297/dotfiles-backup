@@ -1,0 +1,77 @@
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 13px;
+    border: none;
+}
+
+window#waybar {
+    background: rgba(20, 20, 30, 0.6);
+    border-radius: 10px;
+}
+
+tooltip {
+    font-family: NotoSansMono Nerd Font;
+
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-weather,
+#custom-bluetooth,
+#custom-controller,
+#tray {
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 8px;
+    background: rgba(40, 40, 60, 0.6);
+}
+
+#clock {
+    color: #8be9fd;
+    font-weight: bold;
+}
+
+.modules-right {
+    margin-right: 10px;
+}
+
+#custom-power {
+    padding: 0 10px;
+    margin: 4px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#custom-power:hover {
+    background: rgba(100, 140, 255, 0.18);
+    color: #8ecbff;
+}
+
+#workspaces {
+    background: rgba(40, 40, 60, 0.6);
+    border-radius: 8px;
+    padding: 0 10px;
+    margin: 0 4px;
+}
+
+#workspaces button {
+    color: #9aa5b1;
+    padding: 0 4px;
+    background: transparent;
+}
+
+/* By default, even active/visible workspaces stay hollow */
+#workspaces button.active,
+#workspaces button.visible {
+    color: #9aa5b1;
+}
+
+/* Only the workspace hosted on this monitor gets the filled look */
+#workspaces button.hosting-monitor.active,
+#workspaces button.hosting-monitor.visible {
+    color: #7dd3fc;
+}
