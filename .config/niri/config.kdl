@@ -5,7 +5,7 @@ cursor {
     xcursor-theme "Sweet-cursors"
     xcursor-size 24
 }
-spawn-at-startup "swaybg" "-o" "DP-1" "-i" "/home/Spring/Pictures/ninja-gaiden-4.jpg" "-m" "fill" "-o" "DP-2" "-i" "/home/Spring/Pictures/ninja-gaiden-master-collection.jpg" "-m" "fill"
+spawn-at-startup "noctalia"
 prefer-no-csd
 input {
     keyboard {
@@ -20,6 +20,10 @@ input {
 
     mouse {
         accel-profile "flat"
+    }
+    
+    focus-follows-mouse max-scroll-amount="0%" {
+        // Optional: limit scrolling when moving the mouse over windows
     }
 }
 
@@ -112,12 +116,13 @@ animations {
     window-resize {
         spring damping-ratio=0.85 stiffness=650 epsilon=0.0001
     }
+
 }
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+D hotkey-overlay-title="Open Wofi" { spawn "wofi" "--show" "drun"; }
+    Mod+D hotkey-overlay-title="Toggle Launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+E hotkey-overlay-title="Open Thunar" { spawn "thunar"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -131,7 +136,9 @@ binds {
     XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-    Mod+O repeat=false { toggle-overview; }
+    Mod+O { spawn "opera";}
+    Mod+S { spawn "steam";}
+    Mod+V { spawn "vesktop";}
     Mod+Q repeat=false { close-window; }
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -229,7 +236,7 @@ binds {
     Mod+Equal { set-column-width "+10%"; }
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
-    Mod+V       { toggle-window-floating; }
+    Mod+P       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
     Print { screenshot; }
@@ -239,4 +246,9 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P { power-off-monitors; }
+}
+
+debug {
+    wait-for-frame-completion-before-queueing
+    emulate-zero-presentation-time
 }
