@@ -2,11 +2,11 @@
 autoload -Uz compinit
 compinit
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6782A9'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
